@@ -3557,138 +3557,274 @@ body {
     color: rgba(96, 165, 250, 0.7);
 }
 
-/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* ================================================================ */
+/* ===== RESPONSIVE BREAKPOINTS (تم إعادة كتابتها بالكامل) ===== */
+/* ================================================================ */
 
-/* Large Screens (≥992px) */
+/* أجهزة لوحية وشاشات متوسطة (أقل من 992px) */
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.5rem;
     }
-    
     .hero-subtitle {
         font-size: 1.5rem;
     }
-    
     .hero-description {
         font-size: 1rem;
     }
-    
     .hero-stats {
         gap: 25px;
     }
-    
     .stat-number {
         font-size: 2rem;
     }
-    
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
     }
-    
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
     .hero-image-col {
         margin-top: 50px;
     }
-    
     .profile-image {
         width: 280px;
         height: 280px;
     }
-    
-    /* About Section */
     .personal-info-card {
         position: static;
         margin-bottom: 30px;
     }
-    
     .passions-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
     .footer-content {
         grid-template-columns: 1fr 1fr;
     }
-    
     .footer-image {
         order: -1;
         grid-column: 1 / -1;
         margin-bottom: 30px;
     }
-    
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
     .soft-skills-container {
         grid-template-columns: 1fr;
     }
 }
 
-/* Medium Screens (≥768px) */
+/* ===== إصلاح شامل لتجاوب الجوال (جميع اللغات) - أقل من 768px ===== */
 @media (max-width: 768px) {
-    /* Navbar */
+    /* 1. إلغاء جميع التعديلات الخاطئة */
+    .hero-image-col {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        margin-top: 30px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .hero-image-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        text-align: center !important;
+    }
+
+    /* إلغاء أي إزاحة (transform) كانت مخصصة للغة الإنجليزية */
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content,
+    .hero-content {
+        transform: none !important;
+        padding-top: 10px !important;
+        text-align: center !important;
+    }
+
+    .welcome-badge {
+        margin-top: 0 !important;
+        margin-bottom: 20px !important;
+        display: inline-block !important;
+    }
+
+    /* 2. ترتيب العناصر (الصورة تحت النص) */
+    .row.align-items-center {
+        flex-direction: column-reverse !important;
+    }
+
+    /* 3. تحسين شكل الصورة في الجوال */
+    .profile-image {
+        width: 220px !important;
+        height: 220px !important;
+        border-width: 5px !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+
+    .profile-image-wrapper {
+        display: inline-block;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* 4. إصلاح الأيقونات الطافية */
+    .floating-element {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 18px !important;
+        display: flex !important;
+        opacity: 1 !important;
+        z-index: 10 !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    [data-theme="dark"] .floating-element {
+        background: rgba(30, 41, 59, 0.95) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    .element-1 { top: 10px !important; left: 10px !important; }
+    .element-2 { top: 10px !important; right: 10px !important; }
+    .element-3 { bottom: 10px !important; left: 10px !important; }
+    .element-4 { bottom: 10px !important; right: 10px !important; }
+
+    /* 5. إصلاح وسام الخبرة */
+    .experience-badge {
+        position: absolute !important;
+        bottom: -5px !important;
+        left: auto !important;
+        right: 5px !important;
+        z-index: 15 !important;
+    }
+
+    .badge-content {
+        width: 70px !important;
+        height: 70px !important;
+    }
+
+    .badge-number {
+        font-size: 1.3rem !important;
+    }
+    .badge-text {
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 6. تحسين النصوص والمسافات */
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        text-align: center !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem !important;
+        min-height: 40px !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .typewriter-container {
+        display: flex !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    .hero-description {
+        font-size: 0.95rem !important;
+        margin-top: 15px !important;
+        margin-bottom: 25px !important;
+        padding: 0 5px !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    /* 7. إصلاح الإحصائيات */
+    .hero-stats {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .stat-item {
+        flex: 0 0 auto !important;
+        min-width: 80px !important;
+        max-width: 120px !important;
+        padding: 8px 12px !important;
+        background: rgba(37, 99, 235, 0.04) !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+    }
+
+    .stat-number {
+        font-size: 1.6rem !important;
+    }
+    .stat-label {
+        font-size: 0.75rem !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+    }
+
+    /* 8. إصلاح الأزرار */
+    .hero-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    .hero-buttons .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+
+    /* 9. إصلاح سهم التمرير */
+    .scroll-indicator {
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        margin-top: 30px !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* 10. إخفاء الخلفيات الثقيلة في الجوال */
+    .code-snippet-bg {
+        display: none !important;
+    }
+
+    .tech-icons-bg .tech-icon {
+        opacity: 0.03 !important;
+    }
+
+    /* 11. تأكيد إلغاء الإزاحة للغة الإنجليزية */
+    html[lang="en"] .scroll-indicator,
+    body[data-lang="en"] .scroll-indicator {
+        transform: none !important;
+        margin-top: 25px !important;
+    }
+    
+    /* إصلاحات عامة للجوال */
     .navbar-nav {
         gap: 15px;
     }
-    
     .btn-download-cv {
         margin-right: 0;
         margin-top: 15px;
         width: 100%;
         justify-content: center;
     }
-    
-    /* Hero Section */
     .hero-section {
         padding-top: 100px;
     }
-    
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.3rem;
-        min-height: 50px;
-    }
-    
-    .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-    
-    .stat-item {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .stat-number {
-        font-size: 1.6rem;
-    }
-    
-    .stat-label {
-        font-size: 0.8rem;
-        line-height: 1.2;
-    }
-    
-    .profile-image {
-        width: 200px;
-        height: 200px;
-    }
-    .welcome-badge{
-        margin-bottom: 20px;
-        margin-top: -200px;
-    }
-    
     .fade-in-up-smoll-screen{
-        margin-top: 0px;
         margin-top: -20px;
     }
     .fade-in-up-text{
@@ -3697,363 +3833,234 @@ body {
     .fade-in-up{
         margin-top: 0px;
         margin-bottom: -10px;
-
     }
     .hero-image-container{
-        margin-left: -90px;
-
+        margin-left: 0 !important;
     }
-    .floating-element {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
-    }
-    
-    .experience-badge {
-        bottom: 0px;
-        left: 10px;
-    }
-    
-    .badge-content {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .badge-number {
-        font-size: 1.5rem;
-    }
-    
-    .badge-text {
-        font-size: 0.8rem;
-    }
-    
-    .code-snippet-bg {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin: 15px;
-        width: calc(100% - 30px);
-        max-width: none;
-    }
-    
-    .code-snippet {
-        opacity: 0.2;
-        font-size: 12px;
-        padding: 12px;
-        text-align: center;
-    }
-    
-    .theme-toggle {
-        bottom: 20px;
-        left: 20px;
-        width: 45px;
-        height: 45px;
-    }
-    
-    .global-tech-icon {
-        font-size: 25px;
-        opacity: 0.04;
-    }
-    
-    /* About Section */
-    .personal-info-card {
-        margin-bottom: 30px;
-    }
-    
-    .content-card-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .header-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-    }
-    
-    .header-text h3 {
-        font-size: 1.4rem;
-    }
-    
-    .passions-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .detail-item {
-        padding: 10px 0;
-    }
-    
-    /* Projects Section */
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
     .filter-buttons {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
     .filter-btn {
         padding: 8px 15px;
         font-size: 0.85rem;
     }
-    
     .project-gallery {
         height: 200px;
     }
-    
     .project-header {
         flex-direction: column;
         gap: 10px;
     }
-    
     .project-date {
         align-self: flex-start;
     }
-    
     .project-links {
         flex-direction: column;
     }
-    
     .project-link {
         width: 100%;
     }
-    
     .project-stats {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
+        padding: 10px;
     }
-    
-    /* Skills Section */
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .overview-stats {
-        gap: 20px;
-    }
-    
-    .stat {
-        min-width: 80px;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .category-title {
-        font-size: 1.5rem;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .skill-group-title {
-        font-size: 1.2rem;
-    }
-    
-    .methodologies-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    /* Contact Section */
     .form-footer {
         flex-direction: column;
         gap: 15px;
         align-items: stretch;
     }
-    
     .submit-btn {
         width: 100%;
         justify-content: center;
     }
-    
     .form-note {
         justify-content: center;
         text-align: center;
     }
-    
     .social-buttons {
         grid-template-columns: 1fr;
     }
-    
-    /* Footer */
     .footer-bottom {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
     .back-top-btn {
         justify-content: center;
     }
-    
     .final-img {
         width: 150px;
         height: 150px;
     }
 }
 
-/* Small Screens (≥576px) */
+/* ===== للشاشات الصغيرة جداً (أقل من 576px) ===== */
 @media (max-width: 576px) {
-    /* General */
     .container {
         padding-left: 15px;
         padding-right: 15px;
     }
-    
-    /* Hero Section */
     .hero-title {
         font-size: 1.8rem;
     }
-    
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
     .welcome-badge {
         font-size: 0.8rem;
         padding: 6px 15px;
     }
-    
     .hero-description {
         font-size: 0.95rem;
     }
-    
     .profile-image {
-        width: 220px;
-        height: 220px;
+        width: 180px !important;
+        height: 180px !important;
+        border-width: 5px !important;
     }
-    
     .floating-element {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 16px !important;
     }
-    
-    .element-1 { top: 10px; left: 10px; }
-    .element-2 { top: 10px; right: 10px; }
-    .element-3 { bottom: 10px; left: 10px; }
-    .element-4 { bottom: 10px; right: 10px; }
-    
-    /* About Section */
+    .element-1 { top: 10px !important; left: 10px !important; }
+    .element-2 { top: 10px !important; right: 10px !important; }
+    .element-3 { bottom: 10px !important; left: 10px !important; }
+    .element-4 { bottom: 10px !important; right: 10px !important; }
+    .experience-badge {
+        bottom: 5px !important;
+        left: 5px !important;
+    }
+    .badge-content {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    .badge-number {
+        font-size: 1rem !important;
+    }
     .personal-name {
         font-size: 1.5rem;
     }
-    
     .challenge-box,
     .philosophy-item {
         flex-direction: column;
         text-align: center;
     }
-    
     .challenge-icon,
     .philo-icon {
         margin: 0 auto 15px;
     }
-    
-    /* Skills Section */
     .overview-card {
         padding: 20px;
     }
-    
     .skill-card {
         padding: 20px;
     }
-    
     .skill-icon {
         width: 50px;
         height: 50px;
         font-size: 24px;
     }
-    
     .soft-skill-group,
     .methodology-card {
         padding: 20px;
     }
-    
     .languages-card,
     .learning-path {
         padding: 20px;
     }
-    
-    /* Contact Section */
     .contact-avatar {
         width: 100px;
         height: 100px;
     }
-    
     .whatsapp-btn {
         flex-direction: column;
         gap: 8px;
         padding: 12px;
         font-size: 1rem;
     }
-    
     .social-btn {
         padding: 15px;
     }
-    
     .social-icon {
         width: 40px;
         height: 40px;
         font-size: 1rem;
     }
-    
-    /* Footer */
     .final-img {
         width: 150px;
         height: 150px;
     }
-    
     .logo-name {
         font-size: 1.5rem;
     }
+    .hero-stats .stat-item {
+        min-width: 70px;
+        max-width: 90px;
+        padding: 6px 8px;
+    }
 }
 
-/* Extra Small Screens (<400px) */
+/* ===== للشاشات الصغيرة جداً (أقل من 400px) ===== */
 @media (max-width: 400px) {
+    .profile-image {
+        width: 150px !important;
+        height: 150px !important;
+        border-width: 4px !important;
+    }
+
+    .floating-element {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+    }
+    .element-1 { top: 5px !important; left: 5px !important; }
+    .element-2 { top: 5px !important; right: 5px !important; }
+    .element-3 { bottom: 5px !important; left: 5px !important; }
+    .element-4 { bottom: 5px !important; right: 5px !important; }
+
+    .experience-badge {
+        right: 2px !important;
+        bottom: -2px !important;
+    }
+    .badge-content {
+        width: 55px !important;
+        height: 55px !important;
+    }
+    .badge-number { font-size: 1rem !important; }
+    .badge-text { font-size: 0.55rem !important; }
+
     .hero-title {
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
     }
-    
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem !important;
     }
-    
-    .hero-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+    .hero-stats .stat-item {
+        min-width: 60px !important;
+        max-width: 80px !important;
+        padding: 4px 6px !important;
     }
-    
     .stat-number {
-        font-size: 1.4rem;
+        font-size: 1.2rem !important;
     }
-    
     .stat-label {
-        font-size: 0.75rem;
+        font-size: 0.65rem !important;
     }
-    
     .btn {
         padding: 12px 25px;
         font-size: 1rem;
     }
-    
-    .profile-image {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .floating-element {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-    
     .project-title {
         font-size: 1.2rem;
     }
-    
     .skills-cta-btn,
     .view-more-btn,
     .explore-btn {
@@ -4061,562 +4068,7 @@ body {
         font-size: 0.95rem;
     }
 }
-/* ==== إصلاح شاشات الجوال (max-width: 768px) ==== */
-@media (max-width: 768px) {
-    /* إزالة التعديلات الخاطئة */
-    .hero-image-col {
-        position: absolute !important; /* تغيير من absolute إلى relative */
-        top: 0px !important;
-        left: 0px !important;
-        width: auto !important;
-        height: auto !important;
-        margin-bottom: 30px !important;
-    }
-    
-    /* إعادة ضبط تخطيط الصفوف */
-    .row.align-items-center {
-        flex-direction: column !important;
-    }
-    
-    /* تعديل حجم الصورة في الجوال */
-    .profile-image {
-        width: 225px !important;
-        height: 225px !important;
-    }
-    
-    /* ضمان ظهور الأيقونات الطافية */
-    .floating-element {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        z-index: 10 !important;
-        animation: floatMobile 4s ease-in-out infinite !important;
-    }
-    
-    /* تعديل أحجام ومواضع الأيقونات للجوال */
-    .floating-element {
-        width: 40px !important;
-        height: 40px !important;
-        font-size: 18px !important;
-    }
-    
-    .element-1 { top: 15px !important; left: 15px !important; }
-    .element-2 { top: 15px !important; right: 15px !important; }
-    .element-3 { bottom: 15px !important; left: 15px !important; }
-    .element-4 { bottom: 15px !important; right: 15px !important; }
-    
-    /* Badge experience في الجوال */
-    .experience-badge {
-        position: absolute;
-        left: 75px !important;
-        bottom: 0px !important;
-    }
-    
-    .badge-content {
-        width: 70px !important;
-        height: 70px !important;
-    }
-    
-    .badge-number {
-        font-size: 1.2rem !important;
-    }
-    
-    .badge-text {
-        font-size: 0.7rem !important;
-    }
-    
-    /* تحريك الأيقونات في الجوال */
-    @keyframes floatMobile {
-        0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
-        50% { transform: translateY(-10px) scale(1.05) rotate(5deg); }
-    }
-}
 
-/* ==== للشاشات الصغيرة جداً (max-width: 576px) ==== */
-@media (max-width: 576px) {
-    .profile-image {
-        width: 180px !important;
-        height: 180px !important;
-        border-width: 5px !important;
-    }
-    
-    .floating-element {
-        width: 35px !important;
-        height: 35px !important;
-        font-size: 16px !important;
-    }
-    
-    .element-1 { top: 10px !important; left: 10px !important; }
-    .element-2 { top: 10px !important; right: 10px !important; }
-    .element-3 { bottom: 10px !important; left: 10px !important; }
-    .element-4 { bottom: 10px !important; right: 10px !important; }
-    
-    /* تجربة Badge أصغر */
-    .experience-badge {
-        bottom: 5px !important;
-        left: 5px !important;
-    }
-    
-    .badge-content {
-        width: 60px !important;
-        height: 60px !important;
-    }
-    
-    .badge-number {
-        font-size: 1rem !important;
-    }
-}
-
-/* ==== للشاشات الضيقة جداً (max-width: 400px) ==== */
-@media (max-width: 400px) {
-    .profile-image {
-        width: 160px !important;
-        height: 160px !important;
-        border-width: 4px !important;
-    }
-    
-    .floating-element {
-        width: 30px !important;
-        height: 30px !important;
-        font-size: 14px !important;
-    }
-    
-    /* جعل الأيقونات أكثر وضوحاً */
-    .floating-element {
-        background: rgba(255, 255, 255, 0.95) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-    }
-    
-    [data-theme="dark"] .floating-element {
-        background: rgba(30, 41, 59, 0.95) !important;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-    }
-    
-    /* إضافة تأثير hover بسيط للجوال */
-    @media (hover: none) and (pointer: coarse) {
-        .floating-element:active {
-            transform: scale(1.1) !important;
-            transition: transform 0.2s ease !important;
-        }
-    }
-}
-
-/* ==== حل مشكلة overflow ==== */
-.profile-image-wrapper {
-    overflow: visible !important; /* السماح برؤية الأيقونات خارج الإطار */
-}
-
-/* Print Styles */
-@media print {
-    .loading-screen,
-    .scroll-indicator,
-    .hero-bg-elements,
-    .floating-element,
-    .tech-icons-bg,
-    .theme-toggle,
-    .navbar-toggler,
-    .btn-download-cv,
-    .hero-buttons,
-    .view-more-btn,
-    .explore-btn,
-    .skills-cta-btn,
-    .whatsapp-btn,
-    .social-buttons,
-    .back-top-btn {
-        display: none !important;
-    }
-    
-    .hero-section {
-        padding-top: 0;
-        min-height: auto;
-    }
-    
-    .navbar {
-        position: static !important;
-        background: white !important;
-        box-shadow: none !important;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.5;
-    }
-    
-    h1, h2, h3, h4 {
-        page-break-after: avoid;
-    }
-    
-    .project-card,
-    .skill-card,
-    .contact-info-card {
-        page-break-inside: avoid;
-    }
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Animation Classes */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* ===== HERO STATS FIX ===== */
-.hero-stats {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 40px;
-    flex-wrap: nowrap; /* إضافة هذا */
-    justify-content: flex-start; /* بدلاً من center */
-}
-
-.stat-item {
-    text-align: center;
-    flex: 1; /* جعل العناصر متساوية العرض */
-    min-width: 100px; /* عرض أدنى */
-    max-width: 150px; /* عرض أقصى */
-}
-
-.stat-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-    margin-bottom: 5px;
-    white-space: nowrap; /* منع تكسر النص */
-}
-
-.stat-label {
-    font-size: 1rem;
-    color: var(--text-light);
-    font-weight: 500;
-    white-space: nowrap; /* منع تكسر النص */
-}
-
-/* ===== RESPONSIVE FIXES ===== */
-
-/* للأجهزة اللوحية */
-@media (max-width: 992px) {
-    .hero-stats {
-        gap: 30px;
-        justify-content: center;
-        flex-wrap: wrap; /* السماح بالتفاف */
-    }
-    
-    .stat-item {
-        min-width: 90px;
-        max-width: 120px;
-        flex: 0 0 auto; /* لا تمدد تلقائياً */
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-    }
-}
-
-/* للهواتف الكبيرة */
-@media (max-width: 768px) {
-    .hero-stats {
-        gap: 25px;
-        justify-content: space-between; /* توزيع متساوٍ */
-        flex-wrap: nowrap; /* لا نلف في هذا الحجم */
-    }
-    
-    .stat-item {
-        min-width: 80px;
-        max-width: 100px;
-        flex: 1; /* توزيع متساوٍ */
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.85rem;
-    }
-}
-
-/* للهواتف المتوسطة */
-@media (max-width: 576px) {
-    .hero-stats {
-        gap: 15px;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        margin-bottom: 30px;
-    }
-    
-    .stat-item {
-        min-width: 70px;
-        max-width: 90px;
-        flex: 1;
-        padding: 0 5px;
-    }
-    
-    .stat-number {
-        font-size: 1.6rem;
-    }
-    
-    .stat-label {
-        font-size: 0.8rem;
-    }
-}
-
-/* للهواتف الصغيرة جداً */
-@media (max-width: 400px) {
-    .hero-stats {
-        gap: 10px;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-    }
-    
-    .stat-item {
-        min-width: 60px;
-        max-width: 80px;
-        flex: 1;
-        padding: 0 3px;
-    }
-    
-    .stat-number {
-        font-size: 1.4rem;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-        line-height: 1.2;
-    }
-}
-
-/* بديل: للشاشات الضيقة جداً */
-@media (max-width: 350px) {
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
-    .stat-item {
-        min-width: 120px;
-        max-width: 150px;
-        flex: 0 0 auto;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        background: rgba(37, 99, 235, 0.05);
-        padding: 10px 15px;
-        border-radius: 10px;
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .stat-number {
-        order: 2;
-        flex: 1;
-        text-align: left;
-        margin-bottom: 0;
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        order: 1;
-        flex: 1;
-        text-align: right;
-        font-size: 0.9rem;
-    }
-}
-
-/* للحفاظ على التناسق مع قسم المشاريع */
-@media (max-width: 768px) {
-    /* إزالة علامة + من الأرقام في الإحصائيات */
-    .stat-item:first-child .stat-number::after,
-    .stat-item:nth-child(2) .stat-number::after {
-        content: '+';
-        font-size: 0.8em;
-        margin-right: 2px;
-        opacity: 0.8;
-    }
-    
-    .stat-item:last-child .stat-number::after {
-        content: '%';
-        font-size: 0.8em;
-        margin-right: 2px;
-        opacity: 0.8;
-    }
-}
-
-/* لضمان عدم وجود مسافات زائدة */
-.hero-stats .stat-item {
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* تحسين الظهور على الشاشات الضيقة */
-@media (max-width: 320px) {
-    .hero-stats {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .stat-item {
-        width: 100%;
-        max-width: 180px;
-        flex-direction: row;
-        justify-content: space-between;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(139, 92, 246, 0.05));
-        padding: 12px 20px;
-        border-radius: 12px;
-        border: 1px solid rgba(37, 99, 235, 0.1);
-    }
-    
-    .stat-number {
-        flex: 1;
-        text-align: left;
-        font-size: 1.5rem;
-    }
-    
-    .stat-label {
-        flex: 1;
-        text-align: right;
-        font-size: 0.85rem;
-    }
-}
-/* في قسم المشاريع - الإصلاح */
-.project-stats {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    padding: 15px;
-    background: rgba(37, 99, 235, 0.03);
-    border-radius: 12px;
-    border: 1px solid rgba(37, 99, 235, 0.05);
-    box-sizing: border-box;
-    flex-wrap: nowrap; /* منع التغليف */
-}
-
-/* للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .project-stats {
-        flex-direction: row; /* يبقى في صف واحد */
-        flex-wrap: wrap; /* يسمح بالتفاف للصف الثاني إذا لزم */
-        justify-content: center;
-        gap: 15px; /* مسافة بين العناصر */
-        padding: 10px;
-    }
-    
-    .stat-item {
-        min-width: 100px; /* عرض مناسب */
-        max-width: 120px;
-        flex: 1; /* توزيع متساوٍ */
-        margin: 5px 0;
-    }
-}
-
-/* للشاشات الأصغر جداً */
-@media (max-width: 576px) {
-    .project-stats {
-        flex-direction: row; /* يبقى في صف واحد */
-        flex-wrap: wrap; /* يسمح بالتفاف للصف الثاني إذا لزم */
-        justify-content: space-between; /* توزيع مساوي */
-        gap: 10px;
-        padding: 8px;
-    }
-    
-    .stat-item {
-        min-width: 90px; /* عرض أقل */
-        max-width: 110px;
-        flex: 0 0 calc(33.333% - 10px); /* 3 عناصر في الصف */
-        margin: 0;
-        padding: 5px;
-    }
-    
-    .stat-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 14px;
-        margin-bottom: 5px;
-    }
-    
-    .stat-number {
-        font-size: 1.1rem !important; /* أصغر قليلاً */
-        min-height: 25px;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-    }
-}
-
-/* للشاشات الصغيرة جداً (أقل من 400px) */
-@media (max-width: 400px) {
-    .project-stats {
-        flex-direction: row; /* يبقى في صف واحد */
-        flex-wrap: wrap; /* يسمح بالتفاف للصف الثاني إذا لزم */
-        gap: 8px;
-        padding: 6px;
-    }
-    
-    .stat-item {
-        min-width: 80px;
-        max-width: 100px;
-        flex: 0 0 calc(33.333% - 8px); /* 3 عناصر في الصف */
-        padding: 3px;
-    }
-    
-    .stat-number {
-        font-size: 1rem !important;
-    }
-    
-    .stat-label {
-        font-size: 0.7rem;
-    }
-}
-
-/* للحفاظ على النسب عند الطباعة */
-@media print {
-    .project-stats {
-        flex-direction: row !important;
-        flex-wrap: wrap !important;
-    }
-    
-    .stat-item {
-        break-inside: avoid;
-    }
-}
-
-
-/* ===== PROFESSIONAL PORTFOLIO REFINEMENTS ===== */
-.skill-progress {
-    display: none !important;
-}
-
-.hero-stats .stat-number::after {
-    content: none !important;
-}
-
-    
 /* ===== LANGUAGE TOGGLE ===== */
 .language-toggle {
     margin-right: 12px;
@@ -4723,144 +4175,66 @@ html[lang="en"] .skill-card.learning::before {
     }
 }
 
-/* ===== ENGLISH MOBILE HERO TEXT CENTER FIX ONLY ===== */
-@media (max-width: 991px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        text-align: center;
-        padding-top: 205px;
+/* ===== Print & Accessibility ===== */
+@media print {
+    .loading-screen,
+    .scroll-indicator,
+    .hero-bg-elements,
+    .floating-element,
+    .tech-icons-bg,
+    .theme-toggle,
+    .navbar-toggler,
+    .btn-download-cv,
+    .hero-buttons,
+    .view-more-btn,
+    .explore-btn,
+    .skills-cta-btn,
+    .whatsapp-btn,
+    .social-buttons,
+    .back-top-btn {
+        display: none !important;
     }
-
-    html[lang="en"] .welcome-badge,
-    body[data-lang="en"] .welcome-badge {
-        display: inline-block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    html[lang="en"] .hero-title,
-    body[data-lang="en"] .hero-title {
-        text-align: center;
-        font-size: 2.3rem;
-        line-height: 1.35;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 14px;
-        margin-bottom: 18px;
-    }
-
-    html[lang="en"] .typewriter-container,
-    body[data-lang="en"] .typewriter-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    html[lang="en"] .hero-subtitle,
-    body[data-lang="en"] .hero-subtitle {
-        justify-content: center;
-        text-align: center;
-        width: 100%;
+    .hero-section {
+        padding-top: 0;
         min-height: auto;
     }
-
-    html[lang="en"] .hero-description,
-    body[data-lang="en"] .hero-description {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
+    .navbar {
+        position: static !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+    .project-card,
+    .skill-card,
+    .contact-info-card {
+        page-break-inside: avoid;
     }
 }
 
-@media (max-width: 576px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        padding-top: 200px;
-    }
-
-    html[lang="en"] .hero-title,
-    body[data-lang="en"] .hero-title {
-        font-size: 2rem;
-    }
-
-    html[lang="en"] .hero-subtitle,
-    body[data-lang="en"] .hero-subtitle {
-        font-size: 1.2rem;
-    }
-}
-/* ===== Final English Mobile Hero Position Fix ===== */
-@media (max-width: 991px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        transform: translate(24px, -14px) !important;
-    }
-
-    html[lang="en"] .hero-section,
-    body[data-lang="en"] .hero-section {
-        min-height: 98vh;
-        padding-bottom: 35px;
-    }
-
-    html[lang="en"] .hero-description,
-    body[data-lang="en"] .hero-description {
-        margin-top: 5px;
-    }
-
-    html[lang="en"] .hero-buttons,
-    body[data-lang="en"] .hero-buttons {
-        margin-top: 5px;
-    }
-
-    html[lang="en"] .scroll-indicator,
-    body[data-lang="en"] .scroll-indicator {
-        position: relative;
-        margin-top: 0px;
-        left: auto;
-        transform: translateY(-22px) !important;
-        display: flex;
-        justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
-@media (max-width: 576px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        transform: translate(28px, -18px) !important;
-    }
-
-    html[lang="en"] .hero-title,
-    body[data-lang="en"] .hero-title {
-        margin-bottom: 15px;
-    }
-
-    html[lang="en"] .typewriter-container,
-    body[data-lang="en"] .typewriter-container {
-        margin-bottom: 20px;
-    }
-}
-/* ===== Lift English mobile hero slightly up ===== */
-@media (max-width: 991px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        transform: translate(24px, -22px) !important;
-    }
-
-    html[lang="en"] .scroll-indicator,
-    body[data-lang="en"] .scroll-indicator {
-        margin-top: -1px !important;
-    }
+/* ===== Animation Classes ===== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-@media (max-width: 576px) {
-    html[lang="en"] .hero-content,
-    body[data-lang="en"] .hero-content {
-        transform: translate(28px, -20px) !important;
-    }
-
-    html[lang="en"] .scroll-indicator,
-    body[data-lang="en"] .scroll-indicator {
-        margin-top: -5px !important;
-    }
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
