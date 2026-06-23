@@ -1224,8 +1224,10 @@ function applyPortfolioLanguage(lang) {
 
     root.setAttribute('lang', safeLang);
     root.setAttribute('dir', safeLang === 'ar' ? 'rtl' : 'ltr');
-    document.body.setAttribute('data-lang', safeLang);
 
+    document.body.setAttribute('data-lang', safeLang);
+    document.body.setAttribute('dir', safeLang === 'ar' ? 'rtl' : 'ltr');
+    document.body.style.direction = safeLang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('[data-i18n]').forEach((el) => {
         const key = el.getAttribute('data-i18n');
         const item = portfolioTranslations.text[key];
@@ -1275,7 +1277,13 @@ function applyPortfolioLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const savedLanguage = localStorage.getItem('portfolioLanguage') || 'ar';
+    // Force the first default language to English after this update
+    if (!localStorage.getItem('portfolioLanguageDefaultUpdated')) {
+        localStorage.removeItem('portfolioLanguage');
+        localStorage.setItem('portfolioLanguageDefaultUpdated', 'true');
+    }
+
+    const savedLanguage = localStorage.getItem('portfolioLanguage') || 'en';
     applyPortfolioLanguage(savedLanguage);
 
     const langButton = document.getElementById('languageToggle');

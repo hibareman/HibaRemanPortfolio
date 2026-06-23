@@ -4722,3 +4722,145 @@ html[lang="en"] .skill-card.learning::before {
         margin-left: 0;
     }
 }
+
+/* ===== ENGLISH MOBILE HERO TEXT CENTER FIX ONLY ===== */
+@media (max-width: 991px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        text-align: center;
+        padding-top: 205px;
+    }
+
+    html[lang="en"] .welcome-badge,
+    body[data-lang="en"] .welcome-badge {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    html[lang="en"] .hero-title,
+    body[data-lang="en"] .hero-title {
+        text-align: center;
+        font-size: 2.3rem;
+        line-height: 1.35;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 14px;
+        margin-bottom: 18px;
+    }
+
+    html[lang="en"] .typewriter-container,
+    body[data-lang="en"] .typewriter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    html[lang="en"] .hero-subtitle,
+    body[data-lang="en"] .hero-subtitle {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        min-height: auto;
+    }
+
+    html[lang="en"] .hero-description,
+    body[data-lang="en"] .hero-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        padding-top: 200px;
+    }
+
+    html[lang="en"] .hero-title,
+    body[data-lang="en"] .hero-title {
+        font-size: 2rem;
+    }
+
+    html[lang="en"] .hero-subtitle,
+    body[data-lang="en"] .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+/* ===== Final English Mobile Hero Position Fix ===== */
+@media (max-width: 991px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        transform: translate(24px, -14px) !important;
+    }
+
+    html[lang="en"] .hero-section,
+    body[data-lang="en"] .hero-section {
+        min-height: 98vh;
+        padding-bottom: 35px;
+    }
+
+    html[lang="en"] .hero-description,
+    body[data-lang="en"] .hero-description {
+        margin-top: 5px;
+    }
+
+    html[lang="en"] .hero-buttons,
+    body[data-lang="en"] .hero-buttons {
+        margin-top: 5px;
+    }
+
+    html[lang="en"] .scroll-indicator,
+    body[data-lang="en"] .scroll-indicator {
+        position: relative;
+        margin-top: 0px;
+        left: auto;
+        transform: translateY(-22px) !important;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        transform: translate(28px, -18px) !important;
+    }
+
+    html[lang="en"] .hero-title,
+    body[data-lang="en"] .hero-title {
+        margin-bottom: 15px;
+    }
+
+    html[lang="en"] .typewriter-container,
+    body[data-lang="en"] .typewriter-container {
+        margin-bottom: 20px;
+    }
+}
+/* ===== Lift English mobile hero slightly up ===== */
+@media (max-width: 991px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        transform: translate(24px, -22px) !important;
+    }
+
+    html[lang="en"] .scroll-indicator,
+    body[data-lang="en"] .scroll-indicator {
+        margin-top: -1px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    html[lang="en"] .hero-content,
+    body[data-lang="en"] .hero-content {
+        transform: translate(28px, -20px) !important;
+    }
+
+    html[lang="en"] .scroll-indicator,
+    body[data-lang="en"] .scroll-indicator {
+        margin-top: -5px !important;
+    }
+}
